@@ -16,10 +16,18 @@ class Add extends React.Component{
     clickSave = ()=>{
         console.log("click")
         const ls = window.localStorage;
+        const getLsTodo = JSON.parse(ls.todoListArr)
+
         let {inputTodo,todoListArr} = this.state
-        todoListArr.push({"id":todoListArr.length,"todo":inputTodo})
-        // console.log(todoListArr)
-        ls.setItem("todoListArr",JSON.stringify(todoListArr))
+
+        if(getLsTodo.length!==0){
+            getLsTodo.push({"id":todoListArr.length,"todo":inputTodo})
+            console.log(getLsTodo)
+            // ls.setItem("todoListArr",JSON.stringify(getLsTodo))
+        }
+        else {
+            ls.setItem("todoListArr",{"id":todoListArr.length,"todo":inputTodo})
+        }
 
     }
 

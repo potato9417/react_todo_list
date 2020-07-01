@@ -39,8 +39,8 @@ class Home extends React.Component{
     render(){
         let {isName,todos} = this.state
         const ls = window.localStorage
-        const lsTodo = JSON.parse(ls.todoListArr)
-        console.log(lsTodo)
+        // const lsTodo = JSON.parse(ls.todoListArr)
+        // console.log(lsTodo)
 
         if(isName===false || isName===undefined){
             console.log("없다")
