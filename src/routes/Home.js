@@ -40,8 +40,8 @@ class Home extends React.Component{
         let {isName,todos} = this.state
         const ls = window.localStorage
         console.log(111,JSON.parse(ls.todoListArr))
-        todos=JSON.parse(ls.todoListArr)
-        console.log(1,isName,todos)
+        // todos=JSON.parse(ls.todoListArr)  이부분이 자꾸 오류남!! 체크체크
+        // console.log(1,isName,todos)
 
         if(isName===false || isName===undefined){
             console.log("없다")
