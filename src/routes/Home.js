@@ -39,9 +39,8 @@ class Home extends React.Component{
     render(){
         let {isName,todos} = this.state
         const ls = window.localStorage
-        console.log(111,JSON.parse(ls.todoListArr))
-        // todos=JSON.parse(ls.todoListArr)  이부분이 자꾸 오류남!! 체크체크
-        // console.log(1,isName,todos)
+        const lsTodo = JSON.parse(ls.todoListArr)
+        console.log(lsTodo)
 
         if(isName===false || isName===undefined){
             console.log("없다")
