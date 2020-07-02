@@ -23,7 +23,7 @@ class Add extends React.Component{
             todoInput.focus()
             return
         }
-        todoListArr.push(todoList)
+        todoListArr.concat(todoList)
         this.setState({id:id+1,todoListArr:todoListArr})
         ls.setItem("todoList_ls",JSON.stringify(todoListArr))
             
