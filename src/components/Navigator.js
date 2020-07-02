@@ -6,7 +6,6 @@ function Navigator(){
         <nav id="nav">
             <h2 id="logo">DOING! NOW!</h2>
             <Link to="/">HOME</Link>
-            <Link to="/add">ADD</Link>
             <Link to="/done">DONE</Link>
         </nav>
     )

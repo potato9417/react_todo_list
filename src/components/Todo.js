@@ -1,4 +1,5 @@
 import React from "react";
+import { AiOutlineClose } from "react-icons/ai";
 
 class Todo extends React.Component{
     removeTodo=()=>{
@@ -10,7 +11,7 @@ class Todo extends React.Component{
         return(
             <div className={id}>
                 <p>{todo}</p>
-                <button className="btns delete" onClick={this.removeTodo}>X</button>
+                <button className="btns delete" onClick={this.removeTodo}><AiOutlineClose /></button>
             </div>
         )
     }
