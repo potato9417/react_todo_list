@@ -3,7 +3,7 @@ import React from "react"
 class Add extends React.Component{
     state={
         inputTxt:"",
-        id:0,
+        id:1,
         todoListArr:[]
     }
     
@@ -17,20 +17,19 @@ class Add extends React.Component{
         const todoInput = document.getElementById("addTodoInput")
         const todoList = {id,inputTxt}
         const ls = window.localStorage
+
         if(inputTxt===""){
             window.alert("Write Todo!!")
             todoInput.focus()
             return
         }
-
-        this.setState({id:id+1,todoListArr:todoListArr.concat(todoList)})
-
+        todoListArr.push(todoList)
+        this.setState({id:id+1,todoListArr:todoListArr})
         ls.setItem("todoList_ls",JSON.stringify(todoListArr))
             
         // console.log(inputTxt,id)
         
         todoInput.focus()
-        console.log(this.state)
 
         this.setState({inputTxt:""})
     }
