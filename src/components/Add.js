@@ -2,12 +2,37 @@ import React from "react"
 
 class Add extends React.Component{
     state={
-        inputTxt:""
+        inputTxt:"",
+        id:0,
+        todoListArr:[]
     }
     
     setInput=(event)=>{
-        console.log(event.target.value)
+        // console.log(event.target.value)
         this.setState({inputTxt:event.target.value})
+    }
+
+    uploadTodo=()=>{
+        const {inputTxt,id,todoListArr} =this.state
+        const todoInput = document.getElementById("addTodoInput")
+        const todoList = {id,inputTxt}
+        const ls = window.localStorage
+        if(inputTxt===""){
+            window.alert("Write Todo!!")
+            todoInput.focus()
+            return
+        }
+
+        this.setState({id:id+1,todoListArr:todoListArr.concat(todoList)})
+
+        ls.setItem("todoList_ls",JSON.stringify(todoListArr))
+            
+        // console.log(inputTxt,id)
+        
+        todoInput.focus()
+        console.log(this.state)
+
+        this.setState({inputTxt:""})
     }
 
     render(){
@@ -17,7 +42,7 @@ class Add extends React.Component{
                 <form>
                     <input type="text" id="addTodoInput" value={this.state.inputTxt} onChange={this.setInput}></input>
                 </form>
-                <button className="btns addTodo">ADD!</button>
+                <button className="btns addTodo" onClick={this.uploadTodo}>ADD!</button>
             </section>
         )
     }
