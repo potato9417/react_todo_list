@@ -1,50 +1,40 @@
-import React from "react"
+import React from "react";
 
 class Add extends React.Component{
     state={
-        inputTxt:"",
-        id:1,
+        id:0,
+        inputTodo:"",
         todoListArr:[]
     }
-    
-    setInput=(event)=>{
-        // console.log(event.target.value)
-        this.setState({inputTxt:event.target.value})
+
+    changeTodo=(event)=>{
+        console.log(event.target.value)
+
+        this.setState({inputTodo:event.target.value})
     }
 
-    uploadTodo=()=>{
-        const {inputTxt,id,todoListArr} =this.state
-        const todoInput = document.getElementById("addTodoInput")
-        const todoList = {id,inputTxt}
-        const ls = window.localStorage
+    clickSave = ()=>{
+        console.log("click")
+        const ls = window.localStorage;
+        let {inputTodo,todoListArr} = this.state
+        todoListArr.push({"id":todoListArr.length,"todo":inputTodo})
+        // console.log(todoListArr)
+        ls.setItem("todoListArr",JSON.stringify(todoListArr))
 
-        if(inputTxt===""){
-            window.alert("Write Todo!!")
-            todoInput.focus()
-            return
-        }
-        todoListArr.concat(todoList)
-        this.setState({id:id+1,todoListArr:todoListArr})
-        ls.setItem("todoList_ls",JSON.stringify(todoListArr))
-            
-        // console.log(inputTxt,id)
-        
-        todoInput.focus()
-
-        this.setState({inputTxt:""})
     }
 
     render(){
-        return(
-            <section id="addSection">
-                <h3>Add todo</h3>
+        return (
+            <section id="addTodo">
+                <h1>Add</h1>
                 <form>
-                    <input type="text" id="addTodoInput" value={this.state.inputTxt} onChange={this.setInput}></input>
+                    <input type="text" placeholder="Write to do!!" id="inputTodo" onChange={this.changeTodo} value={this.state.todo}/>
                 </form>
-                <button className="btns addTodo" onClick={this.uploadTodo}>ADD!</button>
+                <button className="btns save" onClick={this.clickSave} >SAVE</button>
+                <button className="btns cancel">CANCEL</button>
             </section>
         )
     }
 }
 
-export default Add
+export default Add; 
