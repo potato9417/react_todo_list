@@ -20,7 +20,7 @@ class Todo extends React.Component{
 
         return(
             <div>
-                <div >
+                <div>
                     <p></p>
                     <button className="btns delete" onClick={this.removeTodo}><AiOutlineClose /></button>
                 </div>
