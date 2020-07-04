@@ -15,8 +15,14 @@ class Add extends React.Component{
 
     handleTodo=()=>{
         const ls=window.localStorage
+        let {inputTodo,todoListArr} = this.state
+
         let getTodo=JSON.parse(ls.getItem("saveTodoListArr"))
-        console.log("콘솔",getTodo)
+        // console.log("콘솔",getTodo)
+
+        getTodo.push({"id":todoListArr.length,"todo":inputTodo})
+
+        console.log("추가",getTodo)
         
         // ls.setItem("todoListArr",getTodo)
     }
@@ -27,7 +33,7 @@ class Add extends React.Component{
         let {inputTodo,todoListArr} = this.state
         todoListArr.push({"id":todoListArr.length,"todo":inputTodo})
         // console.log(todoListArr)
-        ls.setItem("saveTodoListArr",JSON.stringify(todoListArr))
+        ls.setItem("todoListArr",JSON.stringify(todoListArr))
         this.handleTodo()
     }
 

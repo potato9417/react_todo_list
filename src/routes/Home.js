@@ -31,12 +31,12 @@ class Home extends React.Component{
         }
     }
 
-    componentDidMount(){
-        const ls = window.localStorage
-        let todos= JSON.parse(ls.getItem("todoListArr"))
-        this.setState({name:ls.name,isName:ls.isName,todos:todos})
+    // componentDidMount(){
+    //     const ls = window.localStorage
+    //     let todos= JSON.parse(ls.getItem("todoListArr"))
+    //     this.setState({name:ls.name,isName:ls.isName,todos:todos})
 
-    }
+    // }
 
     render(){
         let {isName,todos} = this.state
