@@ -33,7 +33,8 @@ class Home extends React.Component{
 
     componentDidMount(){
         const ls = window.localStorage
-        this.setState({name:ls.name,isName:ls.isName})
+        let todos= JSON.parse(ls.getItem("todoListArr"))
+        this.setState({name:ls.name,isName:ls.isName,todos:todos})
 
     }
 
