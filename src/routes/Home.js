@@ -59,7 +59,7 @@ class Home extends React.Component{
             return (
                 <section id="mainPage">
                     <h1>{this.state.name}'s To Do!</h1>
-                    <Add />
+                    {/* <Add /> */}
                     <div className="todoList">
                         {todos.map(todoItem=>{
                             return <Todo key={todoItem.id} id={todoItem.id} todo={todoItem.todo}/>
